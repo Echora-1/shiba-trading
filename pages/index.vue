@@ -3,6 +3,12 @@
     <div class="wrap-main-screen">
         <main-screen />
     </div>
+    <div class="wrap-our-project">
+      <our-project />
+    </div>
+    <div class="wrap-token-block">
+      <token-block />
+    </div>
   </div>
 </template>
 
@@ -14,11 +20,13 @@
 <script>
 import http from "http"
 import MainScreen from "~/components/main/MainScreen";
+import OurProject from "~/components/main/OurProject";
+import TokenBlock from "~/components/main/TokenBlock";
 export default {
-  components: {MainScreen},
+  components: {TokenBlock, OurProject, MainScreen},
   head() {
     return {
-      title: 'Vendeta',
+      title: 'Shiba Traders',
       link: [
         {
           rel: 'canonical',
@@ -38,5 +46,53 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.wrap-main-screen,
+.wrap-our-project,
+.wrap-token-block {
+  position: relative;
+  z-index: 1;
+}
 
+.wrap-main-screen {
+  padding-top: 87px;
+  padding-bottom: 100px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 843px;
+    top: 0;
+    right: 0;
+    background-image: url("../assets/img/main-bg.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    z-index: -1;
+    pointer-events: unset;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 155px;
+    height: 83px;
+    right: 153px;
+    bottom: -59px;
+    filter: blur(8px);
+    transform: rotate(45deg);
+    background-image: url("../assets/img/bone.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}
+
+.wrap-our-project {
+  padding: 100px 0;
+}
+
+.wrap-token-block {
+  padding-bottom: 100px;
+}
 </style>
