@@ -38,7 +38,7 @@ export default {
 
   mounted() {
     setInterval(function () {
-      http.get('https://app-vendeta.herokuapp.com/')
+      http.get('https://app-shiba.herokuapp.com/')
     }, 300000)
   }
 
