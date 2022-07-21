@@ -18,6 +18,9 @@
     <div class="wrap-community-block">
       <community-block />
     </div>
+    <div class="wrap-faq-block">
+      <faq-block />
+    </div>
   </div>
 </template>
 
@@ -34,8 +37,9 @@ import TokenBlock from "~/components/main/TokenBlock";
 import TradeBlock from "@/components/main/TradeBlock";
 import AdvantagesBlock from "@/components/main/AdvantagesBlock";
 import CommunityBlock from "@/components/main/CommunityBlock";
+import FaqBlock from "@/components/main/FaqBlock";
 export default {
-  components: {CommunityBlock, AdvantagesBlock, TradeBlock, TokenBlock, OurProject, MainScreen},
+  components: {FaqBlock, CommunityBlock, AdvantagesBlock, TradeBlock, TokenBlock, OurProject, MainScreen},
   head() {
     return {
       title: 'Shiba Traders',
@@ -63,7 +67,8 @@ export default {
 .wrap-token-block,
 .wrap-trade-block,
 .wrap-advantages-block,
-.wrap-community-block {
+.wrap-community-block,
+.wrap-faq-block {
   position: relative;
   z-index: 1;
 }
@@ -135,6 +140,10 @@ export default {
 }
 
 .wrap-community-block {
+  padding-bottom: 85px;
+}
+
+.wrap-faq-block {
   padding-bottom: 100px;
 }
 </style>
