@@ -15,6 +15,9 @@
     <div class="wrap-advantages-block">
       <advantages-block />
     </div>
+    <div class="wrap-community-block">
+      <community-block />
+    </div>
   </div>
 </template>
 
@@ -30,8 +33,9 @@ import OurProject from "~/components/main/OurProject";
 import TokenBlock from "~/components/main/TokenBlock";
 import TradeBlock from "@/components/main/TradeBlock";
 import AdvantagesBlock from "@/components/main/AdvantagesBlock";
+import CommunityBlock from "@/components/main/CommunityBlock";
 export default {
-  components: {AdvantagesBlock, TradeBlock, TokenBlock, OurProject, MainScreen},
+  components: {CommunityBlock, AdvantagesBlock, TradeBlock, TokenBlock, OurProject, MainScreen},
   head() {
     return {
       title: 'Shiba Traders',
@@ -58,7 +62,8 @@ export default {
 .wrap-our-project,
 .wrap-token-block,
 .wrap-trade-block,
-.wrap-advantages-block {
+.wrap-advantages-block,
+.wrap-community-block {
   position: relative;
   z-index: 1;
 }
@@ -126,6 +131,10 @@ export default {
 }
 
 .wrap-advantages-block {
+  padding-bottom: 100px;
+}
+
+.wrap-community-block {
   padding-bottom: 100px;
 }
 </style>
