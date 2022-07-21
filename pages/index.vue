@@ -9,6 +9,9 @@
     <div class="wrap-token-block">
       <token-block />
     </div>
+     <div class="wrap-trade-block">
+       <trade-block />
+     </div>
   </div>
 </template>
 
@@ -22,8 +25,9 @@ import http from "http"
 import MainScreen from "~/components/main/MainScreen";
 import OurProject from "~/components/main/OurProject";
 import TokenBlock from "~/components/main/TokenBlock";
+import TradeBlock from "@/components/main/TradeBlock";
 export default {
-  components: {TokenBlock, OurProject, MainScreen},
+  components: {TradeBlock, TokenBlock, OurProject, MainScreen},
   head() {
     return {
       title: 'Shiba Traders',
@@ -48,7 +52,8 @@ export default {
 <style lang="scss" scoped>
 .wrap-main-screen,
 .wrap-our-project,
-.wrap-token-block {
+.wrap-token-block,
+.wrap-trade-block {
   position: relative;
   z-index: 1;
 }
@@ -94,5 +99,24 @@ export default {
 
 .wrap-token-block {
   padding-bottom: 100px;
+}
+
+.wrap-trade-block {
+  padding-bottom: 100px;
+
+  &::before {
+    content: "";
+    width: 100%;
+    min-height: 100vw;
+    position: absolute;
+    top: 121px;
+    right: 0;
+    z-index: -1;
+    background-image: url("../assets/img/trade-bg.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: visible;
+  }
 }
 </style>
