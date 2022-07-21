@@ -50,6 +50,22 @@ export default {
   &__right {
     padding-top: 55px;
     padding-left: 5px;
+    position: relative;
+
+    &::before {
+      content: "";
+      width: 197px;
+      height: 106px;
+      top: 339px;
+      right: -107px;
+      position: absolute;
+      background-image: url("../../assets/img/bone.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      filter: blur(8px);
+      transform: rotate(-30deg);
+    }
   }
 
   &__btn {

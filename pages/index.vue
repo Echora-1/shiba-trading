@@ -12,6 +12,9 @@
      <div class="wrap-trade-block">
        <trade-block />
      </div>
+    <div class="wrap-advantages-block">
+      <advantages-block />
+    </div>
   </div>
 </template>
 
@@ -26,8 +29,9 @@ import MainScreen from "~/components/main/MainScreen";
 import OurProject from "~/components/main/OurProject";
 import TokenBlock from "~/components/main/TokenBlock";
 import TradeBlock from "@/components/main/TradeBlock";
+import AdvantagesBlock from "@/components/main/AdvantagesBlock";
 export default {
-  components: {TradeBlock, TokenBlock, OurProject, MainScreen},
+  components: {AdvantagesBlock, TradeBlock, TokenBlock, OurProject, MainScreen},
   head() {
     return {
       title: 'Shiba Traders',
@@ -53,7 +57,8 @@ export default {
 .wrap-main-screen,
 .wrap-our-project,
 .wrap-token-block,
-.wrap-trade-block {
+.wrap-trade-block,
+.wrap-advantages-block {
   position: relative;
   z-index: 1;
 }
@@ -118,5 +123,9 @@ export default {
     background-size: cover;
     overflow: visible;
   }
+}
+
+.wrap-advantages-block {
+  padding-bottom: 100px;
 }
 </style>
