@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :class="{'dark': isDarkTheme}">
     <div class="wrap-main-screen">
         <main-screen />
     </div>
@@ -30,7 +30,7 @@
 // 20px между 2 блоками
 
 <script>
-import http from "http"
+import {mapGetters} from "vuex";
 import MainScreen from "~/components/main/MainScreen";
 import OurProject from "~/components/main/OurProject";
 import TokenBlock from "~/components/main/TokenBlock";
@@ -40,6 +40,7 @@ import CommunityBlock from "@/components/main/CommunityBlock";
 import FaqBlock from "@/components/main/FaqBlock";
 export default {
   components: {FaqBlock, CommunityBlock, AdvantagesBlock, TradeBlock, TokenBlock, OurProject, MainScreen},
+
   head() {
     return {
       title: 'Shiba Traders',
@@ -52,12 +53,11 @@ export default {
     }
   },
 
-  mounted() {
-    setInterval(function () {
-      http.get('https://app-shiba.herokuapp.com/')
-    }, 300000)
-  }
-
+  computed: {
+    ...mapGetters({
+      isDarkTheme: 'isDarkTheme',
+    }),
+  },
 }
 </script>
 
@@ -145,5 +145,19 @@ export default {
 
 .wrap-faq-block {
   padding-bottom: 100px;
+}
+
+.dark {
+  .wrap-main-screen {
+    &::before {
+      background-image: url("../assets/img/main-bg-dark.svg");
+    }
+  }
+
+  .wrap-trade-block {
+    &::before {
+      background-image: url("../assets/img/trade-bg-dark.svg");
+    }
+  }
 }
 </style>

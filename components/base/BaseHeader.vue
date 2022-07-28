@@ -13,13 +13,12 @@
           <nuxt-link :to="localePath(link.url)"> {{ link.name }}</nuxt-link>
         </li>
       </ul>
-      <button class="base-header__theme">
-        <icon-theme />
+      <button class="base-header__theme" @click="toggleTheme">
+        <icon-solar  v-if="isDarkTheme"/>
+        <icon-theme  v-else/>
       </button>
       <nuxt-link :to="localePath('/')">
-        <base-button class="base-header__sign-up">
-          Sign Up
-        </base-button>
+        <base-button class="base-header__sign-up"> Sign Up </base-button>
       </nuxt-link>
     </div>
   </header>
@@ -40,11 +39,25 @@
 </i18n>
 
 <script>
+import {mapActions, mapGetters} from 'vuex';
 import IconLogo from '~/components/icon/IconLogo'
 import BaseButton from '~/components/base/BaseButton'
 import IconTheme from "~/components/icon/IconTheme";
+import IconSolar from "@/components/icon/IconSolar";
 export default {
-  components: {IconTheme, BaseButton, IconLogo },
+  components: {IconSolar, IconTheme, BaseButton, IconLogo },
+
+  computed: {
+    ...mapGetters({
+      isDarkTheme: "isDarkTheme"
+    })
+  },
+
+  methods: {
+    ...mapActions({
+      toggleTheme: 'toggleTheme'
+    })
+  },
 }
 </script>
 
@@ -76,7 +89,6 @@ export default {
     font-weight: 500;
     font-size: 18px;
     line-height: 22px;
-    color: #132D55;
 
     &:not(:first-child) {
       margin-left: 54px;

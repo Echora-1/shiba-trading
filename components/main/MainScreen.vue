@@ -14,7 +14,8 @@
     </div>
     <div class="main-screen__right">
       <div class="main-screen__img-wrap">
-        <img src="../../assets/img/shiba.svg" width="391" height="515" alt="dog">
+        <img v-show="isDarkTheme" src="../../assets/img/shiba-dark.svg" width="391" height="515" alt="dog">
+        <img v-show="!isDarkTheme" src="../../assets/img/shiba.svg" width="391" height="515" alt="dog">
         <div class="main-screen__bone">
 
         </div>
@@ -24,9 +25,16 @@
 </template>
 
 <script>
+import {mapGetters} from "vuex";
 import BaseButton from "~/components/base/BaseButton";
 export default {
-  components: {BaseButton}
+  components: {BaseButton},
+
+  computed: {
+    ...mapGetters({
+      isDarkTheme: 'isDarkTheme',
+    }),
+  },
 }
 </script>
 

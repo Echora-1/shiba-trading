@@ -27,13 +27,26 @@
     </div>
     <div class="token-block__right">
       <div class="token-block__img-wrap">
-        <img src="../../assets/img/token/shiba.svg" width="405" height="398" class="token-block__img" alt="shiba">
+        <img src="../../assets/img/token/shiba-dark.svg" v-show="isDarkTheme" width="405" height="398" class="token-block__img" alt="shiba">
+        <img src="../../assets/img/token/shiba.svg" v-show="!isDarkTheme" width="405" height="398" class="token-block__img" alt="shiba">
         <div class="token-block__token"></div>
         <div class="token-block__token-small"></div>
       </div>
     </div>
   </div>
 </template>
+
+<script>
+import {mapGetters} from "vuex";
+
+export default  {
+  computed: {
+    ...mapGetters({
+      isDarkTheme: 'isDarkTheme',
+    }),
+  },
+}
+</script>
 
 <style lang="scss" scoped>
 .base-title {
@@ -77,7 +90,6 @@
     font-weight: 600;
     font-size: 20px;
     line-height: 30px;
-    color: #132D55;
 
     p {
       margin: 0;

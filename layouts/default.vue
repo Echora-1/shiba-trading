@@ -8,10 +8,24 @@
   </div>
 </template>
 <script>
+import { mapGetters } from 'vuex'
 import BaseHeader from '~/components/base/BaseHeader'
-import BaseFooter from "@/components/base/BaseFooter";
+import BaseFooter from '@/components/base/BaseFooter'
+
 export default {
-  components: {BaseFooter, BaseHeader },
+  components: { BaseFooter, BaseHeader },
+
+  computed: {
+    ...mapGetters({
+      getTheme: 'getTheme',
+    }),
+  },
+
+  watch: {
+    getTheme(value) {
+      document.body.classList.toggle('dark')
+    },
+  },
 }
 </script>
 

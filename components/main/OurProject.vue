@@ -1,8 +1,17 @@
 <template>
-  <div class="container our-project">
+  <div :class="['container our-project', {'our-project--dark': isDarkTheme}]">
     <div class="our-project__left">
       <div class="our-project__img-wrap">
         <img
+          v-show="isDarkTheme"
+          src="../../assets/img/our-project/shiba-dark.svg"
+          width="383"
+          height="342"
+          class="our-project__img"
+          alt="shiba"
+        />
+        <img
+          v-show="!isDarkTheme"
           src="../../assets/img/our-project/shiba.svg"
           width="383"
           height="342"
@@ -26,6 +35,19 @@
     </div>
   </div>
 </template>
+
+<script>
+import {mapGetters} from "vuex";
+
+export default {
+
+  computed: {
+    ...mapGetters({
+      isDarkTheme: 'isDarkTheme',
+    }),
+  },
+}
+</script>
 
 <style lang="scss" scoped>
 .base-title {
@@ -128,6 +150,13 @@
   &__img {
     width: 100%;
     height: 100%;
+  }
+
+  &--dark {
+    .our-project__bg,
+    .our-project__bg-small {
+      opacity:  0.35;
+    }
   }
 }
 </style>

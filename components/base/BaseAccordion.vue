@@ -1,32 +1,42 @@
 <template>
-    <div class="tab">
-      <input :id="content.title" type="checkbox">
-      <label class="tab-label" :for="content.title">{{ content.title }}<icon-arrow /></label>
-      <div class="tab-content">
-        <p v-for='(item, index) in content.text' :key='index'>{{ item }}</p>
-      </div>
+  <div :class="['tab', { 'tab--dark': isDarkTheme }]">
+    <input :id="content.title" type="checkbox" />
+    <label class="tab-label" :for="content.title"
+      >{{ content.title }}<icon-arrow
+    /></label>
+    <div class="tab-content">
+      <p v-for="(item, index) in content.text" :key="index">{{ item }}</p>
     </div>
+  </div>
 </template>
 
 <script>
-import IconArrow from "@/components/icon/IconArrow";
+import { mapGetters } from 'vuex'
+import IconArrow from '@/components/icon/IconArrow'
+
 export default {
-  components: {IconArrow},
+  components: { IconArrow },
   props: {
     content: {
       type: Object,
       default: () => {
         return {
           title: '',
-          text: []
+          text: [],
         }
-      }
+      },
     },
-  }
+  },
+
+  computed: {
+    ...mapGetters({
+      isDarkTheme: 'isDarkTheme',
+    }),
+  },
 }
 </script>
 
-<style lang='scss' scoped>
+<style lang="scss" scoped>
 input {
   position: absolute;
   opacity: 0;
@@ -36,7 +46,7 @@ input {
 input:checked {
   + .tab-label {
     svg {
-      color: #F9A429;
+      color: #f9a429;
       transform: translateY(-50%) rotate(180deg);
     }
   }
@@ -47,16 +57,14 @@ input:checked {
 }
 
 .tab {
-  background: #FFFFFF;
+  background: #ffffff;
   width: 100%;
-  color: #132D55;
   overflow: hidden;
   &-label {
     display: flex;
     justify-content: space-between;
     padding: 24px 50px 24px 34px;
-    background: #FFFFFF;
-    color: #132D55;
+    background: #ffffff;
     cursor: pointer;
     font-size: 18px;
     line-height: 24px;
@@ -76,9 +84,8 @@ input:checked {
     padding: 0 34px;
     font-size: 16px;
     line-height: 24px;
-    color: #132D55;
-    background: #FFFFFF;
-    transition: all .35s;
+    background: #ffffff;
+    transition: all 0.35s;
     position: relative;
 
     p {
@@ -90,7 +97,7 @@ input:checked {
     }
 
     &::before {
-      content: "";
+      content: '';
       position: absolute;
       background: rgba(10, 10, 10, 0.1);
       height: 1px;
@@ -100,6 +107,17 @@ input:checked {
       width: calc(100% - 60px);
     }
   }
-}
 
+  &--dark {
+    background: #2A2933;
+
+    .tab-label {
+      background: #2A2933;
+    }
+
+    .tab-content {
+      background: #2A2933;
+    }
+  }
+}
 </style>

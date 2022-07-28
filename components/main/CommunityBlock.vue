@@ -1,7 +1,8 @@
 <template>
   <div class="community-block container">
     <div class="community-block__left">
-      <img src="../../assets/img/shiba-community.svg" width="383" height="382" alt="shiba">
+      <img src="../../assets/img/shiba-community-dark.svg" v-show="isDarkTheme" width="383" height="382" alt="shiba">
+      <img src="../../assets/img/shiba-community.svg" v-show="!isDarkTheme" width="383" height="382" alt="shiba">
     </div>
     <div class="community-block__right">
       <h2 class="base-title">Community</h2>
@@ -21,9 +22,17 @@
 </template>
 
 <script>
+import {mapGetters} from "vuex";
 import BaseButton from '@/components/base/BaseButton'
+
 export default {
   components: { BaseButton },
+
+  computed: {
+    ...mapGetters({
+      isDarkTheme: 'isDarkTheme',
+    }),
+  },
 }
 </script>
 

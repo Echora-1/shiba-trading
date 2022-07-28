@@ -1,10 +1,12 @@
 <template>
-  <button :class="['base-button', {'base-button--filled': filled }]">
+  <button :class="['base-button', {'base-button--filled': filled, 'base-button--dark': isDarkTheme }]">
     <slot> </slot>
   </button>
 </template>
 
 <script>
+import {mapGetters} from "vuex";
+
 export default {
   props: {
     filled: {
@@ -12,12 +14,17 @@ export default {
       default: false,
     },
   },
+
+  computed: {
+    ...mapGetters({
+      isDarkTheme: 'isDarkTheme',
+    }),
+  },
 }
 </script>
 
 <style lang="scss" scoped>
 .base-button {
-  color: #132D55;
   font-weight: 700;
   font-size: 18px;
   line-height: 22px;
@@ -30,10 +37,15 @@ export default {
   display: inline-flex;
   justify-content: center;
   align-items: center;
+  color: #132D55;
 
   &--filled {
     color: #FFFFFF;
     background: #FA9B27;
+  }
+
+  &--dark {
+    color: #FFFFFF;
   }
 }
 </style>

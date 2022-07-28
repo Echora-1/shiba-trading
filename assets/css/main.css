@@ -47,9 +47,10 @@
 }
 
 body {
-  color: #242424;
+  color: #132D55;
   font-family: 'Gilroy', sans-serif;
   background: #DFE6F8;
+  transition: all 0.3s;
 }
 
 a {
@@ -89,4 +90,9 @@ ul {
 
 @media (min-width: 1440px) {
 
+}
+
+.dark {
+  color: #FFFFFF;
+  background: #18171F;
 }

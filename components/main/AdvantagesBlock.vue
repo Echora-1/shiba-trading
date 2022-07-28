@@ -56,7 +56,6 @@
 
     span, p {
       text-align: center;
-      color: #132D55;
     }
 
     span {
