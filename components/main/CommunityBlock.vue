@@ -57,6 +57,10 @@ export default {
   &__left {
     padding-left: 93px;
     padding-top: 21px;
+
+    @media(max-width: 1000px) {
+      padding-left: 0;
+    }
   }
 
   &__right {
@@ -68,10 +72,24 @@ export default {
     a:not(:last-child) {
       margin-right: 17px;
     }
+
+    @media(max-width: 1000px) {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+
+      a {
+        margin-right: 17px;
+      }
+    }
   }
 
   &__btn {
     min-width: 133px;
+
+    @media(max-width: 1000px) {
+      margin-bottom: 30px;
+    }
   }
 }
 </style>

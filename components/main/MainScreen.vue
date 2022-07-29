@@ -57,14 +57,19 @@ export default {
   }
 
   &__left {
-    padding-top: 112px;
+    @media(min-width: 1001px) {
+      padding-top: 112px;
+    }
   }
 
   &__right {
-    padding-top: 117px;
     display: flex;
     justify-content: flex-end;
     padding-right: 6px;
+
+    @media(min-width: 1001px) {
+      padding-top: 117px;
+    }
   }
 
   .main-screen__action-btn {
@@ -72,6 +77,10 @@ export default {
 
     &:not(:last-child) {
       margin-right: 25px;
+    }
+
+    @media(max-width: 1000px) {
+      min-width: 140px;
     }
   }
 

@@ -73,6 +73,11 @@ export default {
   &__left {
     padding-top: 63px;
     padding-left: 30px;
+
+    @media(max-width: 1000px) {
+      padding-left: 0;
+      padding-right: 30px;
+    }
   }
 
   &__right {

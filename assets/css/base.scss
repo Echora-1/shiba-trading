@@ -12,21 +12,41 @@
 .base-title {
   font-size: 48px;
   line-height: 60px;
+
+  @media(max-width: 1000px) {
+    font-size: 36px;
+    line-height: 45px;
+  }
 }
 
 .base-title-h1 {
   font-size: 80px;
   line-height: 100px;
+
+  @media(max-width: 1000px) {
+    font-size: 42px;
+    line-height: 52px;
+  }
 }
 
 
 .base-subtitle {
   font-size: 24px;
   line-height: 29px;
+
+  @media(max-width: 1000px) {
+    font-size: 20px;
+    line-height: 24px;
+  }
 }
 
 .base-text {
   font-size: 20px;
   line-height: 26px;
   max-width: 495px;
+
+  @media(max-width: 1000px) {
+    font-size: 18px;
+    line-height: 26px;
+  }
 }

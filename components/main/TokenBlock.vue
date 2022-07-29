@@ -69,6 +69,10 @@ export default  {
   &__left {
     padding-top: 4px;
     padding-left: 26px;
+
+    @media(max-width: 1000px) {
+      padding-left: 0;
+    }
   }
 
   &__right {

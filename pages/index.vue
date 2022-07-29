@@ -77,6 +77,7 @@ export default {
   padding-top: 87px;
   padding-bottom: 100px;
 
+
   &::before {
     content: "";
     position: absolute;
@@ -110,6 +111,9 @@ export default {
 
 .wrap-our-project {
   padding: 100px 0;
+  @media(max-width: 1000px) {
+    padding-top: 0;
+  }
 }
 
 .wrap-token-block {

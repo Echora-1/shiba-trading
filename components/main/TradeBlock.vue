@@ -74,6 +74,10 @@ export default {
     &:first-child {
       margin-right: 27px;
     }
+
+    @media(max-width: 1000px) {
+      min-width: 150px;
+    }
   }
 
   &__img-wrap {
